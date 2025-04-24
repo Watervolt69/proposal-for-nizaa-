@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Nizza ♥</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #fce4ec, #f3e5f5, #e3f2fd, #e0f7fa, #e8f5e9);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 50px 0;
+            overflow: hidden;
+        }
+        
+        /* Landing Section */
+        #landing {
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: #ff4081;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease forwards;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #7e57c2;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease forwards 0.3s;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: #ff4081;
+            font-size: 2rem;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        /* About Section */
+        #about {
+            position: relative;
+        }
+        
+        .about-content {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-family: 'Indie Flower', cursive;
+            color: #333;
+        }
+        
+        .about-title {
+            font-size: 2.5rem;
+            color: #ff4081;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .signature {
+            text-align: right;
+            font-family: 'Indie Flower', cursive;
+            font-size: 1.8rem;
+            color: #7e57c2;
+            font-weight: bold;
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.6;
+        }
+        
+        /* Quotes Section */
+        #quotes {
+            background: linear-gradient(135deg, #e0f7fa, #e8f5e9, #fff9c4, #ffebee);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        .quotes-container {
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .quotes-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #ff4081;
+            margin-bottom: 40px;
+        }
+        
+        .quote-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .quote-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 20px);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .quote-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4, #ffecd2);
+        }
+        
+        .quote-card:nth-child(2n)::before {
+            background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+        }
+        
+        .quote-card:nth-child(3n)::before {
+            background: linear-gradient(90deg, #84fab0, #8fd3f4);
+        }
+        
+        .quote-text {
+            font-family: 'Indie Flower', cursive;
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        /* Proposal Section */
+        #proposal {
+            background: linear-gradient(135deg, #ffebee, #fce4ec, #f3e5f5, #ede7f6);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .proposal-content {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        
+        .proposal-title {
+            font-size: 3rem;
+            color: #ff4081;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        
+        .big-question {
+            font-size: 2.5rem;
+            color: #7e57c2;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .btn {
+            padding: 15px 50px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-yes {
+            background-color: #ff4081;
+            color: white;
+        }
+        
+        .btn-no {
+            background-color: #9e9e9e;
+            color: white;
+        }
+        
+        .btn-yes:hover {
+            background-color: #e91e63;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3);
+        }
+        
+        .btn-no:hover {
+            background-color: #757575;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(117, 117, 117, 0.3);
+        }
+        
+        /* Hearts Animation */
+        .hearts-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0.6;
+            animation: floatUp 15s linear infinite;
+        }
+        
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            to {
+                transform: translateY(-50vh) scale(1);
+                opacity: 0;
+            }
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 80%;
+            text-align: center;
+            position: relative;
+            animation: modalFadeIn 0.5s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-title {
+            font-size: 2rem;
+            color: #7e57c2;
+            margin-bottom: 20px;
+        }
+        
+        .modal-text {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .modal-btn {
+            padding: 12px 30px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-btn:hover {
+            background-color: #e91e63;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .about-content {
+                padding: 30px;
+            }
+            
+            .about-content p {
+                font-size: 1.1rem;
+            }
+            
+            .about-title {
+                font-size: 2rem;
+            }
+            
+            .quotes-title {
+                font-size: 2rem;
+            }
+            
+            .quote-card {
+                width: 100%;
+            }
+            
+            .proposal-title {
+                font-size: 2.2rem;
+            }
+            
+            .big-question {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 1.2rem;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Landing Section -->
+    <section id="landing">
+        <div class="container">
+            <h1>Hey Nizza...</h1>
+            <p class="subtitle">I made something special, just for you</p>
+        </div>
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="floating-shapes"></div>
+        <div class="container">
+            <div class="about-content">
+                <h2 class="about-title">A Note From Me To You</h2>
+                <p>Dear Nizza,</p>
+                <p>We met just a few days ago on Threads, but every second talking to you has felt like magic. Your smile, your passion for cooking, the way you speak—it's all been stuck in my mind.</p>
+                <p>You're from the Philippines, but you feel so close to my heart. I made this little place on the internet just for you, because I think you're really special.</p>
+                <p>There's something about the way we connected so quickly that feels rare and beautiful. Like finding the perfect ingredient that makes a recipe extraordinary.</p>
+                <p>I enjoy every moment we spend talking, and I look forward to each message from you.</p>
+                <div class="signature">- Chiku</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section id="quotes">
+        <div class="container">
+            <div class="quotes-container">
+                <h2 class="quotes-title">How You Make Me Feel</h2>
+                <div class="quote-cards">
+                    <div class="quote-card">
+                        <p class="quote-text">"In a world full of strangers, you feel like home."</p>
+                    </div>
+                    <div class="quote-card">
+                        <p class="quote-text">"Cooking may be your hobby, but you've already cooked up something beautiful in my heart."</p>
+                    </div>
+                    <div class="quote-card">
+                        <p class="quote-text">"Some connections don't need years—they just need realness."</p>
+                    </div>
+                    <div class="quote-card">
+                        <p class="quote-text">"The best flavor I've tasted lately is the sweetness of our conversations."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proposal Section -->
+    <section id="proposal">
+        <div class="hearts-container"></div>
+        <div class="container">
+            <div class="proposal-content">
+                <h2 class="proposal-title">This Is The Moment</h2>
+                <p class="big-question">Nizza, will you be my girlfriend?</p>
+                <div class="btn-container">
+                    <button class="btn btn-yes" id="yesBtn">Yes</button>
+                    <button class="btn btn-no" id="noBtn">No</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="noModal">
+        <div class="modal-content">
+            <h3 class="modal-title">It's Okay</h3>
+            <p class="modal-text">If you ever change your mind, just drop a "no" in my DMs... I'll understand. ❤️</p>
+            <button class="modal-btn" id="modalBtn">Okay</button>
+        </div>
+    </div>
+
+    <script>
+        // Scroll smooth animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoOffset({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Create floating shapes
+        const shapes = ['heart', 'circle', 'star', 'square'];
+        const colors = ['#ff4081', '#7e57c2', '#ffb74d', '#4fc3f7', '#9ccc65'];
+        const floatingShapesContainer = document.querySelector('.floating-shapes');
+
+        for (let i = 0; i < 20; i++) {
+            const size = Math.random() * 30 + 10;
+            const shape = document.createElement('div');
+            shape.classList.add('shape');
+            
+            const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            shape.style.width = `${size}px`;
+            shape.style.height = `${size}px`;
+            shape.style.backgroundColor = color;
+            shape.style.left = `${Math.random() * 100}%`;
+            shape.style.top = `${Math.random() * 100}%`;
+            shape.style.borderRadius = randomShape === 'circle' ? '50%' : randomShape === 'square' ? '0' : '5px';
+            
+            if (randomShape === 'heart') {
+                shape.style.backgroundColor = 'transparent';
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.innerHTML = `<svg viewBox="0 0 24 24" fill="${color}"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+            }
+            
+            if (randomShape === 'star') {
+                shape.style.backgroundColor = 'transparent';
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.innerHTML = `<svg viewBox="0 0 24 24" fill="${color}"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>`;
+            }
+            
+            // Animation
+            const duration = Math.random() * 50 + 30;
+            shape.style.animation = `float ${duration}s linear infinite`;
+            shape.style.animationDelay = `-${Math.random() * duration}s`;
+            
+            floatingShapesContainer.appendChild(shape);
+        }
+
+        // Create floating hearts for proposal section
+        const heartsContainer = document.querySelector('.hearts-container');
+        
+        for (let i = 0; i < 30; i++) {
+            const size = Math.random() * 30 + 10;
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.style.backgroundColor = 'transparent';
+            heart.innerHTML = `<svg viewBox="0 0 24 24" fill="${color}"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+            
+            // Animation
+            const duration = Math.random() * 20 + 10;
+            heart.style.animationDuration = `${duration}s`;
+            heart.style.animationDelay = `${Math.random() * 10}s`;
+            
+            heartsContainer.appendChild(heart);
+        }
+
+        // Button functionality
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const noModal = document.getElementById('noModal');
+        const modalBtn = document.getElementById('modalBtn');
+
+        yesBtn.addEventListener('click', function() {
+            window.location.href = "https://www.instagram.com/chiku"; // Replace with Chiku's actual Instagram
+        });
+
+        noBtn.addEventListener('click', function() {
+            noModal.style.display = 'flex';
+        });
+
+        modalBtn.addEventListener('click', function() {
+            window.location.href = "https://www.instagram.com/chiku"; // Replace with Chiku's actual Instagram
+        });
+
+        // Fix for scrollIntoView (Safari)
+        Element.prototype.scrollIntoOffset = function (scrollOptions) {
+            const offset = 0;
+            const elem = this;
+            const offsetTop = elem.getBoundingClientRect().top + window.pageYOffset - offset;
+            
+            window.scrollTo({
+                top: offsetTop,
+                behavior: scrollOptions.behavior
+            });
+        };
+    </script>
+</body>
+</html>
